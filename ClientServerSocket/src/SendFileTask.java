@@ -1,10 +1,10 @@
 import javafx.concurrent.Task;
 
-import java.io.*;
+import java.io.DataOutputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.net.Socket;
-
-import static java.lang.System.in;
-import static java.lang.System.out;
 
 public class SendFileTask extends Task<Void> {
     private File file;
@@ -18,8 +18,7 @@ public class SendFileTask extends Task<Void> {
         int port = 4444;
         updateMessage("Łączenie...");
         updateProgress(0,100);
-        try {
-            Socket server = new Socket(host, port);
+        try (Socket server = new Socket(host, port)) {
             if (!server.isConnected()) {
                 updateMessage("Nie można połączyć.");
                 updateProgress(100,100);
@@ -52,8 +51,6 @@ public class SendFileTask extends Task<Void> {
                 updateMessage("Problem przy wysyłaniu pliku: " + e.getMessage());
                 return null;
             }
-
-            server.close();
         } catch (Exception e) {
             updateMessage("Coś poszło nie tak z Socket!");
             System.err.println(e.getMessage());

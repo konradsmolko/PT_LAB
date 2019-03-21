@@ -1,5 +1,3 @@
-import javafx.concurrent.Task;
-
 import java.io.DataInputStream;
 import java.io.File;
 import java.io.FileOutputStream;
@@ -34,8 +32,7 @@ public class Server {
             // Odbieranie pliku...
             //noinspection ResultOfMethodCallIgnored
             file.createNewFile();
-            FileOutputStream fileOut = new FileOutputStream(file);
-            try {
+            try (FileOutputStream fileOut = new FileOutputStream(file)) {
                 int total = 0;
                 byte[] bytes = new byte[8192];
 
@@ -48,15 +45,12 @@ public class Server {
                 }
 
                 System.out.println("Zakończono pobieranie " + name + "!");
-                fileOut.close();
             } catch (IOException e) {
                 System.out.println("Błąd przy pobieraniu " + name + ": " + e.getMessage());
                 //noinspection ResultOfMethodCallIgnored
                 file.delete();
             }
 
-            dataIn.close();
-            fileOut.close();
         } catch (IOException e) {
             System.out.println(e.getMessage());
             return;
