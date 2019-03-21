@@ -10,10 +10,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
 public class Server {
-    @SuppressWarnings("FieldCanBeLocal")
-    private static Task<Void> getFileTask;
     private static ExecutorService executor = Executors.newFixedThreadPool(8);
-//    private static ExecutorService executor = Executors.newSingleThreadExecutor();
 
     @SuppressWarnings("WeakerAccess")
     public static void receiveFile(Socket client) throws IOException {
