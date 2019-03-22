@@ -26,7 +26,7 @@ public class ImageProcessor extends Application {
 
     public static void main(String[] args) { launch(args); }
 
-    @Override
+    @FXML
     public void initialize(URL url, ResourceBundle rb) {
         imageNameColumn.setCellValueFactory(
                 param -> new SimpleStringProperty(param.getValue().getFile().getName()));
