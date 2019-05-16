@@ -28,7 +28,7 @@ namespace Lab1
             DirectoryInfo di = new DirectoryInfo(args[0]);
             if (di.Exists)
             {
-                Print(di, 0);
+                Print(di);
                 Console.WriteLine("\nNajstarszy plik: " + di.GetOldestDir());
                 SortedDictionary<string, long> dict = di.ContentToICollection();
                 BinaryFormatter formatter = new BinaryFormatter();
@@ -62,21 +62,16 @@ namespace Lab1
             Console.ReadKey();
         }
 
-        static void Print(DirectoryInfo dir, int depth)
+        static void Print(DirectoryInfo dir, int depth = 0)
         {
             const string tabbing = "    ";
             string tabs = "";
             for (int i = 0; i < depth; i++)
                 tabs += tabbing;
-            int size = dir.GetFiles().Length;
-            if (size.Equals(0))
+            int size = dir.GetFiles().Length + dir.GetDirectories().Length;
+            Console.WriteLine(tabs + dir.Name.ToString() + " (" + size + ") " + dir.GetDOSAttr());
+            if (!size.Equals(0))
             {
-                Console.WriteLine(tabs + dir.Name.ToString() + " (" + size + ") " + dir.GetDOSAttr());
-            }
-            else
-            {
-                size = dir.GetFiles().Length + dir.GetDirectories().Length;
-                Console.WriteLine(tabs + dir.Name.ToString() + " (" + size + ") " + dir.GetDOSAttr());
                 tabs += tabbing;
                 foreach (FileInfo file in dir.GetFiles())
                 {
@@ -122,10 +117,9 @@ namespace Lab1
 
         public static string GetDOSAttr(this FileSystemInfo fsi)
         {
-            FileAttributes fattr;
+            FileAttributes fattr = fsi.Attributes;
             string dosattr = "";
             
-            fattr = fsi.Attributes;
             if ((fattr & FileAttributes.ReadOnly) == FileAttributes.ReadOnly)
                 dosattr += "R";
             else
