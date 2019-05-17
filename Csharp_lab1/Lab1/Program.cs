@@ -69,7 +69,7 @@ namespace Lab1
             for (int i = 0; i < depth; i++)
                 tabs += tabbing;
             int size = dir.GetFiles().Length + dir.GetDirectories().Length;
-            Console.WriteLine(tabs + dir.Name.ToString() + " (" + size + ") " + dir.GetDOSAttr());
+            Console.WriteLine(tabs + dir.Name.ToString() + " (" + size + ") " + dir.GetSize() + " bajtow " + dir.GetDOSAttr());
             if (!size.Equals(0))
             {
                 tabs += tabbing;
@@ -82,6 +82,20 @@ namespace Lab1
             {
                 Print(folder, depth + 1);
             }
+        }
+
+        static long GetSize(this DirectoryInfo di)
+        {
+            long size = 0;
+            foreach (DirectoryInfo folder in di.GetDirectories())
+            {
+                size += folder.GetSize();
+            }
+            foreach (FileInfo file in di.GetFiles())
+            {
+                size += file.Length;
+            }
+            return size;
         }
 
         static void Print(SortedDictionary<string, long> dict)
@@ -121,19 +135,19 @@ namespace Lab1
             string dosattr = "";
             
             if ((fattr & FileAttributes.ReadOnly) == FileAttributes.ReadOnly)
-                dosattr += "R";
+                dosattr += "r";
             else
                 dosattr += "-";
             if ((fattr & FileAttributes.Archive) == FileAttributes.Archive)
-                dosattr += "A";
-            else
-                dosattr += "-";
-            if ((fattr & FileAttributes.System) == FileAttributes.System)
-                dosattr += "S";
+                dosattr += "a";
             else
                 dosattr += "-";
             if ((fattr & FileAttributes.Hidden) == FileAttributes.Hidden)
-                dosattr += "H";
+                dosattr += "h";
+            else
+                dosattr += "-";
+            if ((fattr & FileAttributes.System) == FileAttributes.System)
+                dosattr += "s";
             else
                 dosattr += "-";
 
