@@ -4,7 +4,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
+using WC = System.Windows.Controls;
+using WF = System.Windows.Forms;
 using System.Windows.Data;
 using System.Windows.Documents;
 using System.Windows.Input;
@@ -12,6 +13,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.IO;
 
 namespace Csharp_lab2
 {
@@ -27,10 +29,10 @@ namespace Csharp_lab2
 
         private void menuClicked(object sender, RoutedEventArgs e)
         {
-            MenuItem temp;
+            WC.MenuItem temp;
             try
             {
-                temp = sender as MenuItem;
+                temp = sender as WC.MenuItem;
             }
             catch
             {
@@ -39,14 +41,36 @@ namespace Csharp_lab2
             switch (temp.Header.ToString())
             {
                 case "_Open":
-
-                    break;
+                    OpenDir();
+                        break;
                 case "_Exit":
                     Close();
                     break;
                 default:
                     break;
             }
+        }
+
+        private void OpenDir()
+        {
+            using (var dialog = new WF.FolderBrowserDialog())
+            {
+                WF.DialogResult result = dialog.ShowDialog();
+                if (true)
+                {
+                    ShowContents(new WC.TreeViewItem
+                    {
+                        Name = "TreeRoot",
+                        Header = new DirectoryInfo(dialog.SelectedPath).Name,
+                        Tag = dialog.SelectedPath
+                    });
+                }
+            }
+        }
+
+        private void ShowContents(WC.TreeViewItem root)
+        {
+            
         }
     }
 }
