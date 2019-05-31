@@ -37,14 +37,17 @@ namespace Csharp_lab4
             carBindingSource.DataSource = carsBindingList;
             dataGridView1.DataSource = carBindingSource;
 
+            var anonType = new { engineType = "", avgHPPL = 0};
+
             // ret: ienumerable
-            // engineType: A6 && TDI -> diesel; else "petrol"
+            // engineType: car.A6, car.engine.model.TDI -> "diesel"; else "petrol"
             // avgHPPL: średnia arytm. {HP/DISP} dla danego engineType
             // orderby avgHPPL descending
             //IEnumerable<string>
             double totalHP =
                 (from car in myCars
                  where car.Model == "A6"
+                 where car.Engine.Model == "TDI"
                  select car)
                  .Where(car => car.Engine.Model.Contains("TDI"))
                  .Select(car => car.Engine.HorsePower)
