@@ -31,6 +31,7 @@
         <Label Content="Responsywność" HorizontalAlignment="Left" Margin="215,220,0,0" VerticalAlignment="Top"/>
         <Button Content="Sprawdź" HorizontalAlignment="Left" Margin="313,221,0,0" VerticalAlignment="Top" Width="75" Height="23"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="215,251,0,0" TextWrapping="Wrap" Text="435634525" VerticalAlignment="Top" Width="120"/>
+        <TextBlock HorizontalAlignment="Left" Margin="10,208,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="201" Width="200"/>
 
     </Grid>
 </Window>
