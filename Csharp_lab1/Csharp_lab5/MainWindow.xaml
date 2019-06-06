@@ -14,7 +14,7 @@
         <Label Content="Fibonacci" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top"/>
         <Label Content="i" HorizontalAlignment="Left" Margin="14,98,0,0" VerticalAlignment="Top"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="34,101,0,0" TextWrapping="Wrap" Text="123123" VerticalAlignment="Top" Width="176"/>
-        <Button Content="GET" HorizontalAlignment="Left" Margin="10,129,0,0" VerticalAlignment="Top" Width="75" Height="23"/>
+        <Button Content="GET" HorizontalAlignment="Left" Margin="10,129,0,0" VerticalAlignment="Top" Width="75" Height="23" Click="Button_Click"/>
         <TextBox HorizontalAlignment="Left" Height="23" Margin="90,129,0,0" TextWrapping="Wrap" Text="129387412893741" VerticalAlignment="Top" Width="120"/>
         <ProgressBar HorizontalAlignment="Left" Height="15" Margin="10,157,0,0" VerticalAlignment="Top" Width="200"/>
         <Label Content="DNS" HorizontalAlignment="Left" Margin="10,177,0,0" VerticalAlignment="Top"/>
