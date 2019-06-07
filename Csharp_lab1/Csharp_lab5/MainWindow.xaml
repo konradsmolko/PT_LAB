@@ -9,29 +9,31 @@
     <Grid>
         <Label Content="K" HorizontalAlignment="Left" Margin="10,10,0,0" VerticalAlignment="Top"/>
         <Label Content="N" HorizontalAlignment="Left" Margin="10,41,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="34,13,0,0" TextWrapping="Wrap" Text="2455684" VerticalAlignment="Top" Width="176"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="34,44,0,0" TextWrapping="Wrap" Text="234234" VerticalAlignment="Top" Width="176"/>
+        <TextBox Name="Newton_K" HorizontalAlignment="Left" Height="23" Margin="34,13,0,0" TextWrapping="Wrap" Text="24" VerticalAlignment="Top" Width="176"/>
+        <TextBox Name="Newton_N" HorizontalAlignment="Left" Height="23" Margin="34,44,0,0" TextWrapping="Wrap" Text="234" VerticalAlignment="Top" Width="176"/>
         <Label Content="Fibonacci" HorizontalAlignment="Left" Margin="10,72,0,0" VerticalAlignment="Top"/>
         <Label Content="i" HorizontalAlignment="Left" Margin="14,98,0,0" VerticalAlignment="Top"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="34,101,0,0" TextWrapping="Wrap" Text="123123" VerticalAlignment="Top" Width="176"/>
-        <Button Content="GET" HorizontalAlignment="Left" Margin="10,129,0,0" VerticalAlignment="Top" Width="75" Height="23" Click="Button_Click"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="90,129,0,0" TextWrapping="Wrap" Text="129387412893741" VerticalAlignment="Top" Width="120"/>
-        <ProgressBar HorizontalAlignment="Left" Height="15" Margin="10,157,0,0" VerticalAlignment="Top" Width="200"/>
+        <TextBox Name="Fib_i" HorizontalAlignment="Left" Height="23" Margin="34,101,0,0" TextWrapping="Wrap" Text="123123" VerticalAlignment="Top" Width="176"/>
+        <Button Content="GET" HorizontalAlignment="Left" Margin="10,129,0,0" VerticalAlignment="Top" Width="75" Height="23"/>
+        <TextBox Name="Fib_return" HorizontalAlignment="Left" Height="23" Margin="90,129,0,0" TextWrapping="Wrap" Text="129387412893741" VerticalAlignment="Top" Width="120"/>
+        <ProgressBar Name="Fib_progressbar" HorizontalAlignment="Left" Height="15" Margin="10,157,0,0" VerticalAlignment="Top" Width="200"/>
         <Label Content="DNS" HorizontalAlignment="Left" Margin="10,177,0,0" VerticalAlignment="Top"/>
         <Button Content="Resolve" HorizontalAlignment="Left" Margin="49,180,0,0" VerticalAlignment="Top" Width="75"/>
-        <Button Content="Tasks" HorizontalAlignment="Left" Margin="215,13,0,0" VerticalAlignment="Top" Width="75" Height="23"/>
-        <Button Content="Delegates" HorizontalAlignment="Left" Margin="215,43,0,0" VerticalAlignment="Top" Width="75" Height="24"/>
-        <Button Content="Async/Await" HorizontalAlignment="Left" Margin="215,74,0,0" VerticalAlignment="Top" Width="75" Height="24"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="295,44,0,0" TextWrapping="Wrap" Text="678" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="295,75,0,0" TextWrapping="Wrap" Text="678" VerticalAlignment="Top" Width="120"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="295,14,0,0" TextWrapping="Wrap" Text="678" VerticalAlignment="Top" Width="120"/>
+        <Button Content="Tasks" HorizontalAlignment="Left" Margin="215,13,0,0" VerticalAlignment="Top" Width="75" Height="23" Click="Btn_newton_tasks"/>
+        <Button Content="Delegates" HorizontalAlignment="Left" Margin="215,43,0,0" VerticalAlignment="Top" Width="75" Height="24" Click="Btn_newton_delegates"/>
+        <Button Content="Async/Await" HorizontalAlignment="Left" Margin="215,74,0,0" VerticalAlignment="Top" Width="75" Height="24" Click="Btn_newton_async"/>
+        <TextBox Name="Delegates_amount" HorizontalAlignment="Left" Height="23" Margin="295,44,0,0" TextWrapping="Wrap" Text="678" VerticalAlignment="Top" Width="120"/>
+        <TextBox Name="Async_await_amount" HorizontalAlignment="Left" Height="23" Margin="295,75,0,0" TextWrapping="Wrap" Text="678" VerticalAlignment="Top" Width="120"/>
+        <TextBox Name="Tasks_amount" HorizontalAlignment="Left" Height="23" Margin="295,14,0,0" TextWrapping="Wrap" Text="678" VerticalAlignment="Top" Width="120"/>
         <Label Content="Kompresja" HorizontalAlignment="Left" Margin="215,129,0,0" VerticalAlignment="Top"/>
         <Button Content="Dekompresuj" HorizontalAlignment="Left" Margin="295,163,0,0" VerticalAlignment="Top" Width="75" Height="23"/>
         <Button Content="Kompresuj" HorizontalAlignment="Left" Margin="215,163,0,0" VerticalAlignment="Top" Width="75" Height="23"/>
         <Label Content="Responsywność" HorizontalAlignment="Left" Margin="215,220,0,0" VerticalAlignment="Top"/>
         <Button Content="Sprawdź" HorizontalAlignment="Left" Margin="313,221,0,0" VerticalAlignment="Top" Width="75" Height="23"/>
-        <TextBox HorizontalAlignment="Left" Height="23" Margin="215,251,0,0" TextWrapping="Wrap" Text="435634525" VerticalAlignment="Top" Width="120"/>
-        <TextBlock HorizontalAlignment="Left" Margin="10,208,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="201" Width="200"/>
+        <TextBox Name="Responsywnosc_return" HorizontalAlignment="Left" Height="23" Margin="215,251,0,0" TextWrapping="Wrap" Text="435634525" VerticalAlignment="Top" Width="120"/>
+        <TextBlock Name="DNS_return" HorizontalAlignment="Left" Margin="10,208,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Height="201" Width="200"/>
+        <Label Content="Czas wywołania ostatniego testu&#xD;&#xA;" HorizontalAlignment="Left" Margin="475,75,0,0" VerticalAlignment="Top"/>
+        <Label x:Name="time_taken" Content="Label" HorizontalAlignment="Left" Margin="475,122,0,0" VerticalAlignment="Top" Width="182"/>
 
     </Grid>
 </Window>
